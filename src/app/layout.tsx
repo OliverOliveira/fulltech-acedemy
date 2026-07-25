@@ -3,6 +3,7 @@ import { Inter, Caveat, Manrope } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
+import Footer from "@/components/footer";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -24,7 +25,7 @@ export default function RootLayout({
     <html lang="pt" className="h-full antialiased">
       <body
         className={cn(
-          "min-h-full flex flex-col",
+          "min-h-screen flex flex-col px-2",
           inter.variable,
           caveat.variable,
           manrope.variable,
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
