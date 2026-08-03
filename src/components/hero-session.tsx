@@ -114,7 +114,7 @@ export default function HeroSession() {
                         whileTap={{ scale: 0.96 }}
                         className="relative"
                     >
-                        <Link href="/cursos" className="flex p-6 group relative">
+                        <Link href="/auth" className="flex p-6 group relative">
                             <div className="absolute -top-4 -left-6">
                                 <svg
                                     ref={buttonBlobRef}

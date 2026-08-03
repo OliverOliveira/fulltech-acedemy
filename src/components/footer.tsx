@@ -99,7 +99,7 @@ export default function Footer() {
                 >
                     <p>Junte-se a milhares de alunos que aprendem e controem todos os dias</p>
                     <Link
-                        href="/login"
+                        href="/auth"
                         className="bg-destructive text-white px-6 py-4 rounded-full flex items-center justify-center transition-colors hover:bg-destructive/90"
                     >
                         Entrar na Fulltech Academy
