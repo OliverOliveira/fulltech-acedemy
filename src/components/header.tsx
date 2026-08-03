@@ -49,7 +49,7 @@ export function Header() {
 
           <li>
             <Link
-              href="/login"
+              href="/auth"
               className="bg-destructive text-white px-6 py-4 rounded-full flex items-center justify-center transition-colors hover:bg-destructive/90"
             >
               Entrar na Academia
