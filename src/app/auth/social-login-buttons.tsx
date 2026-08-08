@@ -9,7 +9,7 @@ import { authClient } from "@/lib/auth-client"
 
 type SocialProvider = "google" | "github"
 
-export function SocialLoginButtons() {
+export function SocialLoginButtons({alignment = "vertical"}: {alignment?: "horizontal" | "vertical"}) {
   const [pendingProvider, setPendingProvider] = useState<SocialProvider | null>(
     null
   )
@@ -37,27 +37,27 @@ export function SocialLoginButtons() {
   }
 
   return (
-    <>
+    <div className={`flex ${alignment === "horizontal" ? "flex-row gap-2" : "flex-col gap-2"} w-full`}>
       <Button
-        className="w-full h-12 rounded-lg p-2 bg-primary-foreground text-black hover:bg-primary-foreground/90 duration-75 hover:scale-105 cursor-pointer"
+        className="h-12 rounded-lg p-2 bg-primary-foreground text-black hover:bg-primary-foreground/90 duration-75 hover:scale-105 cursor-pointer"
         disabled={pendingProvider !== null}
         onClick={handleGoogleSignIn}
       >
         <Image src={"/google.svg"} alt="Google" width={24} height={24} />
-        <Label className="flex-1 justify-center">
+        <Label className="flex-1 justify-center cursor-pointer">
           {pendingProvider === "google" ? "Entrando..." : "Entrar com Google"}
         </Label>
       </Button>
       <Button
-        className="w-full h-12 rounded-lg p-2 bg-primary-foreground text-black hover:bg-primary-foreground/90 duration-75 hover:scale-105 cursor-pointer"
+        className="h-12 rounded-lg p-2 bg-primary-foreground text-black hover:bg-primary-foreground/90 duration-75 hover:scale-105 cursor-pointer"
         disabled={pendingProvider !== null}
         onClick={handleGithubSignIn}
       >
         <Image src={"/github.svg"} alt="GitHub" width={24} height={24} />
-        <Label className="flex-1 justify-center">
+        <Label className="flex-1 justify-center cursor-pointer">
           {pendingProvider === "github" ? "Entrando..." : "Entrar com GitHub"}
         </Label>
       </Button>
-    </>
+    </div>
   )
 }
