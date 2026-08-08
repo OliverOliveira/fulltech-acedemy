@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode, useId } from "react";
 import {
   Field,
   FieldDescription,
@@ -10,26 +10,26 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group"
 
-interface InputComponentProps {
+interface InputComponentProps extends ComponentProps<"input"> {
     label: string;
     description: string;
-    placeholder: string;
-    type: string;
     icon?: ReactNode;
 }
 
-export function InputComponent({ label, description, placeholder, type, icon }: InputComponentProps) {
+export function InputComponent({ label, description, icon, id, ...props }: InputComponentProps) {
+  const generatedId = useId()
+  const inputId = id ?? generatedId
+
   return (
     <Field className="w-full">
-      <FieldLabel htmlFor="inline-end-input" className="text-lg">
+      <FieldLabel htmlFor={inputId} className="text-lg">
         {label}
       </FieldLabel>
       <InputGroup className="h-12 bg-primary-foreground">
         <InputGroupInput
-          id="inline-end-input"
-          type={type}
-          placeholder={placeholder}
+          id={inputId}
           className="h-12"
+          {...props}
         />
         <InputGroupAddon align="inline-end">
           {icon}
